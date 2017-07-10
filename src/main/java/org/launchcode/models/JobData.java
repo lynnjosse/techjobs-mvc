@@ -23,9 +23,6 @@ public class JobData {
     private static ArrayList<HashMap<String, String>> allJobs;
 
     /**
-     * Fetch list of all values from loaded data,
-     * without duplicates, for a given column.
-     *
      * @param field The column to retrieve values from
      * @return List of all of the values of the given field
      */
@@ -34,8 +31,13 @@ public class JobData {
         // load data, if not already loaded
         loadData();
 
-        ArrayList<String> values = new ArrayList<>();
+        //create a new arrayList (values) of strings
+        //for each row in the allJobs list,
+        // aValue is the value of the column
+        //if aValue is not in the values array already, add it.
 
+
+        ArrayList<String> values = new ArrayList<>();
         for (HashMap<String, String> row : allJobs) {
             String aValue = row.get(field);
 
@@ -67,7 +69,7 @@ public class JobData {
      * with "Enterprise Holdings, Inc".
      *
      * @param column   Column that should be searched.
-     * @param value Value of teh field to search for
+     * @param value Value of the field to search for
      * @return List of all jobs matching the criteria
      */
     public static ArrayList<HashMap<String, String>> findByColumnAndValue(String column, String value) {
